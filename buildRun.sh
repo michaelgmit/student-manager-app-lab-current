@@ -1,1 +1,1 @@
-javac -d /tmp/ src/ie/gmit/studentmanager/*.java && java -cp /tmp/ ie.gmit.studentmanager.Main
+javac -d /tmp/ src/ie/gmit/studentmanager/*.java && gp preview $(gp url 6080) && java -cp /tmp/ ie.gmit.studentmanager.Main
