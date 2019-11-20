@@ -1,1 +1,2 @@
 javac -d /tmp/ src/ie/gmit/studentmanager/*.java && gp preview $(gp url 6080) && java -cp /tmp/ ie.gmit.studentmanager.Main
+#For Code runner #java": "javac -d /tmp $dir*.java && killall -9 java && java -cp /tmp $(sed -n 's/package //p' $fullFileName | sed 's/;$/.$fileNameWithoutExt/') &",
