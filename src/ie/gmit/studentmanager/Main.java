@@ -94,29 +94,28 @@ public class Main extends Application implements Serializable {
         // Load from DB
         Button btnLoadDB = new Button("Load Students from DB");
         TextField tfLoadStudents = new TextField();
-
-        tfLoadStudents.setPromptText("Please enter DB path");
+        tfLoadStudents.setPromptText("Enter path to db");
         btnLoadDB.setOnAction(e -> {
-
-            try{
-                File studentDB = new File(tfLoadStudents.getText());
-                ObjectInputStream in = new ObjectInputStream(new FileInputStream(studentDB));
-                sm = (StudentManager) in.readObject();
-                in.close();
-                taMyOutput.setText("Successfully loaded Students from Database");
-            } catch (Exception exception) {
+                 try {
+                    File studentDB = new File(tfLoadStudents.getText());
+                    ObjectInputStream in = new ObjectInputStream(new FileInputStream(studentDB));
+                    sm = (StudentManager) in.readObject();
+                    in.close();
+                    taMyOutput.setText("Student Database Loaded");
+                } catch (Exception exception) {
                     System.out.print("[Error] Cannont load DB. Cause: ");
                     exception.printStackTrace();
                     taMyOutput.setText("ERROR: Failed to load Students DB!");
-            }
+                }
+            });
+        
+            //quit button
+            Button btnQuit = new Button("Quit");
+                btnQuit.setOnAction(e -> {
+                    Platform.exit();
+                });
 
-        });
 
-        // Add Quit button
-		Button btnQuit = new Button("Quit");	
-        btnQuit.setOnAction(e -> 
-            Platform.exit()
-        );
 
         // Adding and arranging all the nodes in the grid - add(node, column, row)
         GridPane gridPane1 = new GridPane();
